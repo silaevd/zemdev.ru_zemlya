@@ -1,0 +1,109 @@
+.stages {
+  background-image: url('../images/stages.jpg');
+  background-position: center center;
+  background-size: cover;
+
+  &__filter {
+    padding: 0 15px 40px;
+  }
+  .sectionTitle {
+    color: $black;
+
+    &__highlight {
+      color: $blue;
+    }
+  }
+  .flex {
+    @include row-flex();
+    justify-content: space-between;
+    padding: 0 80px;
+  }
+}
+
+.stagesItemWrap {
+  @include col();
+}
+
+.stagesItem {
+  color: $black;
+  text-align: center;
+  width: 221px;
+  margin: 0 auto;
+
+  &__img {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+    background-image: url('../images/sprite_icons.png');
+  }
+
+  &__title {
+    font-family: "HelveticaNeueCyrLight", sans-serif;
+    font-size: 1.25em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin: 20px 0;
+  }
+
+  &__desc {
+    font-family: "HelveticaNeueCyrLight", sans-serif;
+    font-size: 0.85em;
+    line-height: 1.2;
+  }
+}
+
+@for $i from 0 through 9 {
+  .stagesItem__img[data-name="sprite-item#{$i}"] {
+    background-position: #{$i * -130}px 0;
+    &:hover {
+      background-position: #{$i * -130}px -130px;
+    }
+  }
+}
+
+@include max-screen(1414px) {
+
+  .stages {
+    .flex {
+      justify-content: center;
+    }
+  }
+
+  .stagesItemWrap {
+    @include col-4();
+    min-width: 221px;
+  }
+
+  .stagesItem {
+    margin-bottom: 15px;
+  }
+}
+
+@include max-screen(912px) {
+
+  .stages {
+    .flex {
+      justify-content: center;
+    }
+  }
+
+  .stagesItemWrap {
+    @include col-6();
+  }
+}
+
+@include max-screen(661px) {
+  .stages {
+    .flex {
+      padding: 0 40px;
+    }
+  }
+}
+
+@include max-screen(581px) {
+  .stages {
+    .flex {
+      padding: 0 20px;
+    }
+  }
+}

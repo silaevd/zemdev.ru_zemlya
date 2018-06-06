@@ -1,0 +1,228 @@
+.popUp__close {
+  font-size: 1.85em;
+  transition: $hover-transition;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  &:hover {
+    color: $orange;
+    cursor: pointer;
+  }
+}
+
+.requestPopUp {
+  max-width: 421px;
+  background: $white;
+  padding: 40px;
+  box-shadow: 0 5px 15px 5px rgba(127, 127, 127, 0.3);
+  position: relative;
+  margin: 0 auto;
+
+  .requestForm {
+    width: 100%;
+  }
+}
+
+.goodsPopUp {
+  background: $white;
+  padding: 30px;
+  box-shadow: 0 5px 15px 5px rgba(127, 127, 127, 0.3);
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+
+  .flex {
+    @include row-flex();
+  }
+
+  &__cover {
+    display: flex;
+    border-right: 1px solid $silver;
+    padding-right: 30px;
+    align-items: center;
+    @include col();
+    @include col-6();
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    margin: auto;
+  }
+
+  &__info {
+    @include col();
+    @include col-6();
+  }
+
+  &__title {
+    font-family: "OpenSansBold", sans-serif;
+    font-size: 1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  &__desc {
+    font-family: "OpenSansRegular", sans-serif;
+    font-size: 0.9em;
+    text-align: justify;
+    margin-bottom: 15px;
+    line-height: 1.2em;
+
+    ul {
+      padding-left: 35px;
+      line-height: 1.2;
+      list-style-type: square;
+      li {
+
+      }
+    }
+  }
+
+  &__price {
+    font-family: "OpenSansBold", sans-serif;
+    font-size: 1.250em;
+    margin-bottom: 40px;
+
+    .highlight {
+      color: $orange;
+      font-size: 1.25em;
+    }
+  }
+
+  .requestForm {
+    &__title {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.thankyouPopUp {
+  text-align: center;
+  background: $orange;
+  padding: 50px;
+  box-shadow: 0 5px 15px 5px rgba(127, 127, 127, 0.3);
+  max-width: 500px;
+  margin: 0 auto;
+
+  &__img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: $white;
+  }
+
+  &__thanks {
+    font-family: "OpenSansSemiBold", sans-serif;
+    font-size: 2em;
+    margin: 20px 0;
+  }
+
+  &__manager {
+    font-family: "OpenSansRegular", sans-serif;
+    margin-bottom: 20px;
+  }
+
+  hr {
+    width: 75px;
+    height: 2px;
+    border: none;
+    background: $black;
+  }
+}
+
+@include max-screen(768px) {
+  .goodsPopUp {
+    margin: 20px;
+
+    &__cover {
+      @include col-12();
+      justify-content: center;
+      border: none;
+      padding: 0;
+      padding-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    &__img {
+      width: auto;
+      max-width: 100%;
+      margin: 0;
+    }
+
+    &__info {
+      @include col-12();
+    }
+
+    &__desc {
+      text-align: left;
+    }
+  }
+}
+
+@include max-screen(480px) {
+
+  .requestPopUp {
+    margin: 20px;
+  }
+
+  .goodsPopUp {
+    max-width: 440px;
+
+    &__title {
+      font-size: 1.1em;
+    }
+
+    &__cover {
+      display: block;
+    }
+
+    &__img {
+      width: 100%;
+    }
+  }
+
+  .thankyouPopUp {
+    margin: 20px;
+  }
+}
+
+
+
+//PopUp Animations
+.mfp-bg {
+  background-color: $white;
+  //opacity: 0.8;
+  transition: $hover-transition;
+}
+
+/* overlay at start */
+.mfp-fade.mfp-bg {
+  opacity: 0;
+
+  transition: $hover-transition;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+  opacity: 0.8;
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+  opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+  opacity: 0;
+
+  transition: $hover-transition;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  opacity: 1;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  opacity: 0;
+}
